@@ -4,6 +4,7 @@ float buttonX2, buttonY2, buttonWidth2, buttonHeight2;
 float rectDisplayX, rectDisplayY, rectDisplayWidth, rectDisplayHeight;
 float ellipseDisplayX, ellipseDisplayY, ellipseDisplayXdiameter, ellipseDisplayYdiameter;
 color black=#000000; //NightMode friendly
+Boolean rectON=false, ellipseON = false;
 //
 void setup() 
 {
@@ -59,8 +60,8 @@ void draw()
   background(black);
   rect(buttonX1, buttonY1, buttonWidth1, buttonHeight1 );
   rect(buttonX2, buttonY2, buttonWidth2, buttonHeight2);
-  rect(rectDisplayX, rectDisplayY, rectDisplayWidth, rectDisplayHeight); //Button 1
-  ellipse(ellipseDisplayX, ellipseDisplayY, ellipseDisplayXdiameter, ellipseDisplayYdiameter); //Button 2
+  if ( rectON==true ) rect(rectDisplayX, rectDisplayY, rectDisplayWidth, rectDisplayHeight); //Button 1
+  if ( ellipseON==true ) ellipse(ellipseDisplayX, ellipseDisplayY, ellipseDisplayXdiameter, ellipseDisplayYdiameter); //Button 2
   //
   //Text for Buttons
 }//End draw
@@ -69,6 +70,10 @@ void keyPressed() {
 }//End keyPressed
 //
 void mousePressed() {
+  rectON =false;
+  ellipseON=false;
+  if ( mouseX>=buttonX1 && mouseX<=buttonX1+buttonWidth1 && mouseY>=buttonY1 && mouseY<=buttonY1+buttonHeight1 ) rectON=true;
+  if (mouseX>=buttonX2 && mouseX<=buttonX2+buttonWidth2 && mouseY>=buttonY2 && mouseY<=buttonY2+buttonHeight2 ) ellipseON=true;
 }//End mousePressed
 //
 //End MAIN program
