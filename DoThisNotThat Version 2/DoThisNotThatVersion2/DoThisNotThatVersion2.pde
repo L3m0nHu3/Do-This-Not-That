@@ -53,7 +53,7 @@ void setup()
   rectDisplayY = centerY - appHeight*1/4;
   rectDisplayWidth = buttonWidth1;
   rectDisplayHeight =  buttonHeight1;
-  //ellipseDisplayX = buttonX2;
+  ellipseDisplayX = rectDisplayY;
   ellipseDisplayY =  rectDisplayY;
   ellipseDisplayXdiameter = appWidth*1/5;
   ellipseDisplayYdiameter = appHeight*1/10;
@@ -90,8 +90,12 @@ void mousePressed() {
  /// rectON =false;
   //ellipseON=false;
   if ( mouseX>=buttonX1 && mouseX<=buttonX1+buttonWidth1 && mouseY>=buttonY1 && mouseY<=buttonY1+buttonHeight1 ) {
-    if (  rectON=false ) {
+    if ( rectON==true ) {
+      rectON=false;
+      ellipseON=true;
     } else {
+      rectON=true;
+      ellipseON=false;
     }
   }//End button 1
   //if (mouseX>=buttonX2 && mouseX<=buttonX2+buttonWidth2 && mouseY>=buttonY2 && mouseY<=buttonY2+buttonHeight2 ) ellipseON=true;
