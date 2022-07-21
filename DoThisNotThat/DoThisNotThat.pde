@@ -79,6 +79,7 @@ void draw()
   //
   //Specific text per button
   text(buttonText1, buttonX1, buttonY1, buttonWidth1, buttonHeight1);
+  text(buttonText2, buttonX2, buttonY2, buttonWidth2, buttonHeight2);
   fill(white);
 }//End draw
 //
