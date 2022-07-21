@@ -3,8 +3,13 @@ float buttonX1, buttonY1, buttonWidth1, buttonHeight1;
 float buttonX2, buttonY2, buttonWidth2, buttonHeight2;
 float rectDisplayX, rectDisplayY, rectDisplayWidth, rectDisplayHeight;
 float ellipseDisplayX, ellipseDisplayY, ellipseDisplayXdiameter, ellipseDisplayYdiameter;
-color black=#000000; //NightMode friendly
+color black=#000000, white=#FFFFFF; //NightMode friendly
 Boolean rectON=false, ellipseON = false;
+//
+String buttonText1= "Press Here";
+String buttonText2= "Or Here";
+PFont buttonFont;
+color darkRed= #AD0003;
 //
 void setup() 
 {
@@ -53,6 +58,10 @@ void setup()
   ellipseDisplayXdiameter = appWidth*1/5;
   ellipseDisplayYdiameter = appHeight*1/10;
   //
+  //Text Setup
+  println("start of Console");
+  //printArray(fontList); //For listing all possible fonts to choose, then to choose then createFont
+  buttonFont = createFont ("TimesNewRomanPSMT", 55);
 }//End setup
 //
 void draw() 
@@ -63,7 +72,14 @@ void draw()
   if ( rectON==true ) rect(rectDisplayX, rectDisplayY, rectDisplayWidth, rectDisplayHeight); //Button 1
   if ( ellipseON==true ) ellipse(ellipseDisplayX, ellipseDisplayY, ellipseDisplayXdiameter, ellipseDisplayYdiameter); //Button 2
   //
-  //Text for Buttons
+  //Text Draw, General Code for any text
+  fill (darkRed);
+  textAlign (CENTER, CENTER);
+  textFont(buttonFont, 25);
+  //
+  //Specific text per button
+  text(buttonText1, buttonX1, buttonY1, buttonWidth1, buttonHeight1);
+  fill(white);
 }//End draw
 //
 void keyPressed() {
